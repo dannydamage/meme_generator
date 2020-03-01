@@ -6,7 +6,7 @@
 // User inputs text in text fields to insert text onto image
 // User selects where text over lays on image
 
-// bing image search api
+// image search api
 const apiURL = "https://pixabay.com/api/";
 const apiKEY = "15298779-71baa10b8ee7928b86c7fe268";
 
