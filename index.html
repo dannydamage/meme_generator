@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="py-5">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col md-2">
+            <h1>Meme Generator</h1>
+
+            <!-- TEXT FIELD GROUPS -->
+            <div class="form-group">
+              <label for="search">Search for Image</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Enter image search"
+                id="search"
+              />
+            </div>
+            <div class="form-group">
+              <label for="upload">Upload an Image</label>
+              <input
+                class="form-control-file"
+                type="file"
+                placeholder="Select an image search"
+                id="upload"
+              />
+            </div>
+            <!-- TEXT FIELD GROUPS -->
+            <div class="form-group">
+              <label for="Upper">Add Upper Text</label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Enter text"
+                id="topLineText"
+              />
+              <button class="btn btn-dark my-2" id="generate">
+                Increase Text Size
+              </button>
+              <button class="btn btn-dark my-2" id="generate">
+                Decrease Text Size
+              </button>
+            </div>
+            <!-- TEXT FIELD GROUPS -->
+            <div class="form-group">
+              <label for="Lower">Add Lower Text</label>
+              <input
+                class="form-control"
+                type="text"
+                id="bottomLineText"
+                placeholder="Enter text"
+              />
+              <button class="btn btn-dark my-2" id="generate">
+                Increase Text Size
+              </button>
+              <button class="btn btn-dark my-2" id="generate">
+                Decrease Text Size
+              </button>
+            </div>
+            <button class="btn btn-primary" id="generate">Generate MEME</button>
+          </div>
+          <div class="col md-2">
+            <div class="meme-container">
+              <!-- <img
+              src="https://source.unsplash.com/random/564x564"
+              alt=""
+              class="img-fluid meme-size"
+            /> -->
+              <canvas class="meme-canvas">
+                
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr />
+
+    <section>
+      <div class="container">
+        <h1>Search Results</h1>
+        <div class="row">
+          <div class="col m-6 results"></div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
+    <script>
+      // Lightbox Init
+      $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
+    </script>
+    <script src="utils/utils.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
