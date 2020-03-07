@@ -10,7 +10,7 @@
 const apiURL = "https://pixabay.com/api/";
 const apiKEY = "15298779-71baa10b8ee7928b86c7fe268";
 
-// Connect to API with key and Search
+// Connect to API with key and SearchTerm
 const fetchData = async searchTerm => {
   const response = await axios.get(apiURL, {
     params: {
@@ -22,8 +22,7 @@ const fetchData = async searchTerm => {
   return response.data.hits;
 };
 
-
-
+// Search function
 const onInput = async e => {
   const images = await fetchData(e.target.value);
 
@@ -60,9 +59,11 @@ const selectImage = image => {
   loadAndDrawImage(src, upperText, lowerText);
 };
 
+// Loads and Draws image for CANVAS element
 const loadAndDrawImage = (src, upperText, lowerText) => {
   const image = new Image();
 
+  //Sets convas size to selected image
   image.onload = () => {
     context.canvas.width = image.width;
     context.canvas.height = image.height;
@@ -90,15 +91,40 @@ const loadAndDrawImage = (src, upperText, lowerText) => {
   image.src = src;
 };
 
-upperText.oninput = greet
+
 
 // Generates MEME
 
 const generateMeme = () => {};
 
-function greet(){
+function greet() {
   console.log("hi");
 }
+
+function textChangeListener(evt) {
+  var id = evt.target.id;
+  var text = evt.target.value;
+
+  if (id == "topLineText") {
+    window.topLineText = text;
+  } else {
+    window.bottomLineText = text;
+  }
+
+  loadAndDrawImage(src, window.topLineText, window.bottomLineText);
+}
+
+generateBTN.addEventListener("click", function() {
+  let reader = new FileReader();
+  reader.onload = function() {
+    let loadedImg = new Image();
+    loadedImg.src = reader.result;
+    console.log(upperText.value)
+    loadAndDrawImage(loadedImg.src, upperText, lowerText);
+  };
+  reader.readAsDataURL(uploadImg.files[0]);
+});
+
 
 
 
