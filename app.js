@@ -31,7 +31,7 @@ const onInput = async e => {
     const option = document.createElement("a");
     option.addEventListener("click", selectImage);
     option.innerHTML = `<a href="#">
-    <img src="${image.previewURL}" class='img-fluid p-2 image' alt="Responsive image"/></a>`;
+    <img src="${image.previewURL}" class='img-fluid p-2 image' alt="Responsive image" crossorigin="anonymous"/></a>`;
 
     option.addEventListener("click", () => {
       selectImage(image);
@@ -49,9 +49,11 @@ const uploadImg = document.querySelector("#upload");
 const upperText = document.querySelector("#topLineText");
 const lowerText = document.querySelector("#bottomLineText");
 const generateBTN = document.querySelector("#generate");
+const saveBTN = document.querySelector("#save")
 const results = document.querySelector(".results");
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
+
 
 // Displays image to DOM when selected
 const selectImage = image => {
@@ -67,6 +69,7 @@ const loadAndDrawImage = (src, upperText, lowerText) => {
   image.onload = () => {
     context.canvas.width = image.width;
     context.canvas.height = image.height;
+    
 
     context.drawImage(image, 0, 0, image.width, image.height);
 
@@ -88,18 +91,14 @@ const loadAndDrawImage = (src, upperText, lowerText) => {
     }
   };
 
+  
+
   image.src = src;
 };
 
 
 
-// Generates MEME
 
-const generateMeme = () => {};
-
-function greet() {
-  console.log("hi");
-}
 
 function textChangeListener(evt) {
   var id = evt.target.id;
@@ -119,12 +118,8 @@ generateBTN.addEventListener("click", function() {
   reader.onload = function() {
     let loadedImg = new Image();
     loadedImg.src = reader.result;
-    console.log(upperText.value)
+    console.log(upperText.value);
     loadAndDrawImage(loadedImg.src, upperText, lowerText);
   };
   reader.readAsDataURL(uploadImg.files[0]);
 });
-
-
-
-
